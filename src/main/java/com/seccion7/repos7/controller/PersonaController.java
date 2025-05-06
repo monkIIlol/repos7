@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -33,28 +35,29 @@ public class PersonaController {
         return personaService.listartodas();
     }
 
-    @GetMapping("/{id}") //.../api/personas/2
+    @GetMapping("/id={id}") //.../api/personas/2
     public Persona getbyId(@PathVariable int id) {
         return personaService.buscarporid(id);
+    }
+    
+    @GetMapping("/rut={rut}")
+    public Persona buscarporrut(@PathVariable String rut) {
+        return personaService.buscarporRut(rut);
     }
     
 
     @PostMapping
     public Persona crearPersona(@RequestBody Persona persona) {
-       
         return personaService.guardar(persona);
-
     }
 
     @PutMapping("/{id}")
     public Persona putMethodName(@PathVariable int id, @RequestBody Persona personamod) {
-
         return personaService.modificPersona(id, personamod);
     }
 
     @DeleteMapping("/{id}")
-    public String deletePersona(@PathVariable int id)
-    {
+    public String deletePersona(@PathVariable int id) {
         return personaService.eliminarPersona(id);
     }
 

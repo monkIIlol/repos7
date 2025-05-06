@@ -24,8 +24,6 @@ public class PersonaService {
     }
 
     public Persona buscarporid(int id) {
-        // TODO Auto-generated method stub
-        //throw new UnsupportedOperationException("Unimplemented method 'buscarporid'");
         return personaRepository.read(id);
     }
 
@@ -39,5 +37,9 @@ public class PersonaService {
     {
         personaRepository.delete(id);
         return "Persona eliminada";
+    }
+
+    public Persona buscarporRut(String rut) {
+        return personaRepository.readByRut(rut);
     }
 }

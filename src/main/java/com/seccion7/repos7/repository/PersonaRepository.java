@@ -36,13 +36,13 @@ public class PersonaRepository {
     }
 
     public Persona read(int id) {
-      for (Persona persona : personas) {
+    for (Persona persona : personas) {
         if(persona.getId()==id)
         {
             return persona;
         }
-      }
-      return null;
+    }
+    return null;
     }
 
     public Persona update(int id, Persona personamod)
@@ -67,6 +67,16 @@ public class PersonaRepository {
         }
 
 
+        return null;
+    }
+
+    public Persona readByRut(String rut) {
+        for (Persona p : personas) {
+            if(p.getRut().equals(rut))
+            {
+                return p;
+            }
+        }
         return null;
     }
 }
